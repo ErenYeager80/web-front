@@ -1609,6 +1609,8 @@
     $(document).ready(()=>{
         $('#train_src_id').select2();
         $('#train_dst_id').select2();
+        $('#flight_src_id').select3();
+        $('#flight_dst_id').select3();
         $.ajax({
             url:'http://localhost:3000/cities',
             method:"GET",
@@ -1625,6 +1627,15 @@
         location.href='./train.html?src_id='+src+'&dst_id='+dst+'&date='+date;
 
     })
+    $('#flight_button').click(()=>{
+        let src = $('#flight_src_id').val();
+        let dst = $('#flight_dst_id').val();
+        let date = $('#flight_date').val();
+        location.href='./flight.html?src_id='+src+'&dst_id='+dst+'&date='+date;
+
+    })
+  
+
 </script>
 
 </body>
