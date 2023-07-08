@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <!-- TITLE -->
-    <title>TravelYar</title>
+    <title>Travel Yar</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
@@ -124,13 +124,16 @@
                             <a href="train.html">Train</a>
                            
                         </li>
-                        <li class="menu-item-has-children">
+                        <li class="menu-item-has-children " id="login">
                             <a href="login.html">Log In</a>
-                           
+
                         </li>
-                        <li class="menu-item-has-children">
+                        <li class="menu-item-has-children" id="register">
                             <a href="register.html">Register</a>
                            
+                        </li>
+                        <li class="menu-item-has-children" id="dashboard">
+                            <a href="#" id="user_name">Contact</a>
                         </li>
                         
 
@@ -253,7 +256,7 @@
 
                     <div class="tp-caption lfl fadeout slider-caption slider-caption-3" data-x="center" data-y="260"
                          data-speed="700" data-easing="easeOutBack" data-start="1500">
-                        Gofar
+                        Travel Yar
                     </div>
 
                     <div href="#" class="tp-caption lfr fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
@@ -526,7 +529,7 @@
                                     <label>From</label>
                                     <div class="form-item">
                                         <select name="src" id="train_src_id" >
-                                            <option value="0">tset</option>
+
                                         </select>
                                     </div>
                                 </div>
@@ -534,7 +537,6 @@
                                     <label>To</label>
                                     <div class="form-item">
                                         <select name="dst" id="train_dst_id">
-                                            <option value="0">tset</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1607,15 +1609,19 @@
         });
     };
     $(document).ready(()=>{
-        $('#train_src_id').select2();
-        $('#train_dst_id').select2();
-        $('#flight_src_id').select3();
-        $('#flight_dst_id').select3();
+        const trainSrc=$('#train_src_id').select2();
+       const trainDst= $('#train_dst_id').select2();
+
+        $('#flight_src_id').select2();
+        $('#flight_dst_id').select2();
         $.ajax({
             url:'http://localhost:3000/cities',
             method:"GET",
             success:(data,status)=>{
-                console.log(data)
+                for (const dataKey of data.data) {
+                    trainSrc.append(new Option(dataKey.name,dataKey.id));
+                    trainDst.append(new Option(dataKey.name,dataKey.id));
+                }
             }
         })
 
@@ -1624,17 +1630,17 @@
         let src = $('#train_src_id').val();
         let dst = $('#train_dst_id').val();
         let date = $('#train_date').val();
-        location.href='./train.html?src_id='+src+'&dst_id='+dst+'&date='+date;
+        location.href='./train.html?src_id='+src+'&dst_id='+dst+'&date='+date+'&page=0';
 
     })
     $('#flight_button').click(()=>{
         let src = $('#flight_src_id').val();
         let dst = $('#flight_dst_id').val();
         let date = $('#flight_date').val();
-        location.href='./flight.html?src_id='+src+'&dst_id='+dst+'&date='+date;
+        location.href='./flight.html?src_id='+src+'&dst_id='+dst+'&date='+date+'&page=0';
 
     })
-  
+
 
 </script>
 

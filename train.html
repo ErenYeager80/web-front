@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- TITLE -->
-    <title>Gofar</title>
+    <title>Travel Yar</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
@@ -16,6 +16,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
     <!-- CSS LIBRARY -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/lib/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/lib/awe-booking-font.css">
@@ -121,13 +122,16 @@
                             <a href="train.html">Train</a>
                            
                         </li>
-                        <li class="menu-item-has-children">
+                        <li class="menu-item-has-children " id="login">
                             <a href="login.html">Log In</a>
-                           
+
                         </li>
-                        <li class="menu-item-has-children">
+                        <li class="menu-item-has-children" id="register">
                             <a href="register.html">Register</a>
                            
+                        </li>
+                        <li class="menu-item-has-children" id="dashboard">
+                            <a href="#" id="user_name">Contact</a>
                         </li>
                         
 
@@ -224,34 +228,32 @@
                             <div class="form-elements">
                                 <label>From</label>
                                 <div class="form-item">
-                                    <i class="awe-icon awe-icon-marker-1"></i>
-                                    <input type="text">
+                                    <select name="from" id="from" style="padding: 100px"></select>
                                 </div>
                             </div>
                             <div class="form-elements">
                                 <label>To</label>
                                 <div class="form-item">
-                                    <i class="awe-icon awe-icon-marker-1"></i>
-                                    <input type="text">
+                                    <select name="to" id="to"></select>
                                 </div>
                             </div>
                             <div class="form-elements">
-                                <label>Depart on</label>
+                                <label>Date</label>
                                 <div class="form-item">
                                     <i class="awe-icon awe-icon-calendar"></i>
-                                    <input type="text" class="awe-calendar" value="Date">
+                                    <input type="text" class="awe-calendar" value="Date" id="date">
                                 </div>
                             </div>
-                            <div class="form-elements">
-                                <label>Return on</label>
-                                <div class="form-item">
-                                    <i class="awe-icon awe-icon-calendar"></i>
-                                    <input type="text" class="awe-calendar" value="Date">
-                                </div>
-                            </div>
+<!--                            <div class="form-elements">-->
+<!--                                <label>Return on</label>-->
+<!--                                <div class="form-item">-->
+<!--                                    <i class="awe-icon awe-icon-calendar"></i>-->
+<!--                                    <input type="text" class="awe-calendar" value="Date">-->
+<!--                                </div>-->
+<!--                            </div>-->
 
                             <div class="form-actions">
-                                <input type="submit" value="Find My Train">
+                                <input type="button" value="Find My Train" id="train_submit">
                             </div>
                         </div>
                     </form>
@@ -265,95 +267,25 @@
     <section class="filter-page">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="page-top">
-                        <ul class="list-link">
-                            <li class="current"><a href="train.html">Train</a></li>
-                            <li><a href="#">Bus</a></li>
-                            <li><a href="#">Boat</a></li>
-                            <li><a href="#">Rent a vehicle</a></li>
-                        </ul>
-                        <select class="awe-select">
-                            <option>Best Match</option>
-                            <option>Best Rate</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-9 col-md-push-3">
+<!--                <div class="col-md-12">-->
+<!--                    <div class="page-top">-->
+<!--                        <ul class="list-link">-->
+<!--                            <li class="current"><a href="train.html">Train</a></li>-->
+<!--                            <li><a href="#">Bus</a></li>-->
+<!--                            <li><a href="#">Boat</a></li>-->
+<!--                            <li><a href="#">Rent a vehicle</a></li>-->
+<!--                        </ul>-->
+<!--                        <select class="awe-select">-->
+<!--                            <option>Best Match</option>-->
+<!--                            <option>Best Rate</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="col-md-12 ">
                     <div class="filter-page__content">
-                        <div class="filter-item-wrapper">
+                        <div class="filter-item-wrapper" id="ticket_patent">
                             <!-- ITEM -->
-                            <div class="flight-item">
-                                <div class="item-media">
-                                    <div class="image-cover">
-                                        <img src="images/flight/1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="item-body">
-                                    <div class="item-title">
-                                        <h2>
-                                            <a href="train-detail.html">Lufthansa : Hanoi - NYC</a>
-                                        </h2>
-                                    </div>
-                                    <table class="item-table">
-                                        <thead>
-                                        <tr>
-                                            <th class="route">Route</th>
-                                            <th class="depart">Depart</th>
-                                            <th class="arrive">Arrive</th>
-                                            <th class="duration">Duration</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td class="route">
-                                                <ul>
-                                                    <li>HAN <i class="awe-icon awe-icon-arrow-right"></i></li>
-                                                    <li>SVO <i class="awe-icon awe-icon-arrow-right"></i></li>
-                                                    <li>JFK <i class="awe-icon awe-icon-arrow-right"></i></li>
-                                                </ul>
-                                            </td>
-                                            <td class="depart">
-                                                <span>10:25</span>
-                                                <span class="date">14 Feb</span>
-                                            </td>
-                                            <td class="arrive">
-                                                <span>12:30</span>
-                                            </td>
-                                            <td class="duration">
-                                                <span>38h5m</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="route">
-                                                <ul>
-                                                    <li>JFK <i class="awe-icon awe-icon-arrow-right"></i></li>
-                                                    <li>SVO <i class="awe-icon awe-icon-arrow-right"></i></li>
-                                                    <li>HAN <i class="awe-icon awe-icon-arrow-right"></i></li>
-                                                </ul>
-                                            </td>
-                                            <td class="depart">
-                                                <span>10:25</span>
-                                            </td>
-                                            <td class="arrive">
-                                                <span>12:30</span>
-                                                <span class="date">15 MAr</span>
-                                            </td>
-                                            <td class="duration">
-                                                <span>38h5m</span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="item-price-more">
-                                    <div class="price">
-                                        <span class="amount">$5,923</span>
-                                        exclude Fare
-                                    </div>
-                                    <a href="train-detail.html" class="awe-btn">Book now</a>
-                                </div>
-                            </div>
+
                             <!-- END / ITEM -->
 
                         </div>
@@ -362,255 +294,14 @@
                         <!-- PAGINATION -->
                         <div class="page__pagination">
                             <span class="pagination-prev"><i class="fa fa-caret-left"></i></span>
-                            <span class="current">1</span>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#" class="pagination-next"><i class="fa fa-caret-right"></i></a>
+
+
+
                         </div>
                         <!-- END / PAGINATION -->
                     </div>
                 </div>
-                <div class="col-md-3 col-md-pull-9">
-                    <div class="page-sidebar">
-                        <div class="sidebar-title">
-                            <h2>Flight</h2>
-                            <div class="clear-filter">
-                                <a href="#">Clear all</a>
-                            </div>
-                        </div>
-                        <!-- WIDGET -->
-                        <div class="widget widget_has_radio_checkbox_text">
-                            <h3>Flight Type</h3>
-                            <div class="widget_content">
-                                <label>
-                                    <input type="checkbox">
-                                    <i class="awe-icon awe-icon-check"></i>
-                                    Oneway
-                                </label>
-                                <label>
-                                    <input type="checkbox">
-                                    <i class="awe-icon awe-icon-check"></i>
-                                    Turn-around
-                                </label>
-                                <label class="from">
-                                    From
-                                    <span class="form-item db">
-                                            <i class="awe-icon awe-icon-marker-1"></i>
-                                            <input type="text">
-                                        </span>
-                                </label>
-                                <label class="to">
-                                    To
-                                    <span class="form-item db">
-                                            <i class="awe-icon awe-icon-marker-1"></i>
-                                            <input type="text">
-                                        </span>
-                                </label>
-                            </div>
-                        </div>
-                        <!-- END / WIDGET -->
 
-                        <!-- WIDGET -->
-                        <div class="widget widget_price_filter">
-                            <h3>Price Level</h3>
-                            <div class="price-slider-wrapper">
-                                <div class="price-slider"></div>
-                                <div class="price_slider_amount">
-                                    <div class="price_label">
-                                        <span class="from"></span> - <span class="to"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END / WIDGET -->
-
-                        <!-- WIDGET -->
-                        <div class="widget widget_has_radio_checkbox">
-                            <h3>Star Rating</h3>
-                            <ul>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        <span class="rating">
-                                                Unrated
-                                            </span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- END / WIDGET -->
-
-                        <!-- WIDGET -->
-                        <div class="widget widget_has_radio_checkbox">
-                            <h3>Distance</h3>
-                            <ul>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Near Airport
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Near Shopping District
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Near Attractions
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Near Traffic station
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- END / WIDGET -->
-
-                        <!-- WIDGET -->
-                        <div class="widget widget_has_radio_checkbox">
-                            <h3>Service Include</h3>
-                            <ul>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Room service
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Laundry
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Meal at room
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Wifi &amp; internet
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Parking lot
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        TV and appliances
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Pool
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox">
-                                        <i class="awe-icon awe-icon-check"></i>
-                                        Gym and Spa
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- END / WIDGET -->
-
-                        <!-- WIDGET -->
-                        <div class="widget widget_product_tag_cloud">
-                            <h3>Tags</h3>
-                            <div class="tagcloud">
-                                <a href="#">Hotel</a>
-                                <a href="#">Motel</a>
-                                <a href="#">Hostel</a>
-                                <a href="#">Homestay</a>
-                            </div>
-                        </div>
-                        <!-- END / WIDGET -->
-
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -683,25 +374,131 @@
 <script type="text/javascript" src="js/lib/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.parallax-1.1.3.js"></script>
 <script type="text/javascript" src="js/lib/jquery.owl.carousel.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>-->
 <script type="text/javascript" src="js/lib/md-map-extend.js"></script>
 <script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript" src="js/lib/perfect-scrollbar.min.js"></script>
 <script type='text/javascript' src="js/lib/jquery-ui.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
-<script>
-    $(document).ready(function () {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-      $.ajax({
-          url:"http://localhost:3000/tickets?type=train&"+window.location.search.substring(1)+"&page=1&size=10",
-          method:"GET",
-          success:function (data) {
-              console.log(data)
-          },
-          error:function (err) {
-              console.log(err)
-          }
-      })
+<script>
+    const cities = [];
+    let pageNum=0;
+    $(document).ready(function () {
+        console.log(user)
+        const date = $("#date");
+        date.val(window.location.search.substring(1).split("&")[2].split("=")[1]).trigger("change");
+        pageNum = window.location.search.substring(1).split("&")[3].split("=")[1];
+
+        $.ajax({
+            url:'http://localhost:3000/cities',
+            method:"GET",
+            success:(data,status)=>{
+                const from = $("#from").select2();
+                const to = $("#to").select2();
+                cities.push(...data.data);
+                for (const dataKey of data.data) {
+                    from.append(new Option(dataKey.name,dataKey.id));
+                    to.append(new Option(dataKey.name,dataKey.id));
+                }
+                from.val(window.location.search.substring(1).split("&")[0].split("=")[1]).trigger("change");
+                to.val(window.location.search.substring(1).split("&")[1].split("=")[1]).trigger("change");
+
+                $.ajax({
+                    url:"http://localhost:3000/tickets?type=train&"+window.location.search.substring(1)+`&page=${pageNum}&size=10`,
+                    method:"GET",
+                    success:function (data) {
+                        const parent = $("#ticket_patent");
+                        const pagination = $(".page__pagination");
+                        for (let i = 0; i < data.pageCount; i++) {
+                            if (i != pageNum) {
+                                pagination.append(`<a href="train.html?${window.location.search.substring(1).replace(/page=\d*/, "")}page=${i}">${i + 1}</a>`);
+                            } else {
+                                pagination.append(`<span  class="current">${i + 1}</span>`);
+                            }
+                        }
+                        pagination.append(` <a href="#" class="pagination-next"><i class="fa fa-caret-right"></i></a>`);
+                        for (const ticket of data.data) {
+                            const src=cities.find(x=>x.id==ticket.src_id);
+                            const dst=cities.find(x=>x.id==ticket.dst_id);
+                            let depart_date = new Date(ticket.date);
+                            let arrive_date = new Date(ticket.date);
+                            const depart_time = depart_date.getHours()+":"+depart_date.getMinutes();
+                            arrive_date.setTime(arrive_date.getTime() + ticket.duration*60000);
+                            const arrive_time = arrive_date.getHours()+":"+arrive_date.getMinutes();
+                            depart_date=depart_date.toDateString();
+                            arrive_date=arrive_date.toDateString();
+                            parent.append(`<div class="flight-item">
+                                <div class="item-media">
+                                    <div class="image-cover">
+                                        <img src="images/flight/1.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="item-body">
+                                    <div class="item-title">
+                                        <h2>
+                                            <a href="train-detail.html">${ticket.title} : ${src.name} - ${dst.name}</a>
+                                        </h2>
+                                    </div>
+                                    <table class="item-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="route">Route</th>
+                                            <th class="depart">Depart</th>
+                                            <th class="arrive">Arrive</th>
+                                            <th class="duration">Duration</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="route">
+                                                <ul>
+                                                    <li>${src.name} <i class="awe-icon awe-icon-arrow-right"></i></li>
+                                                    <li>${dst.name} <i class="awe-icon awe-icon-arrow-right"></i></li>
+
+                                                </ul>
+                                            </td>
+                                            <td class="depart">
+                                                <span>${depart_time}</span>
+                                                <span class="date">${depart_date}</span>
+                                            </td>
+                                            <td class="arrive">
+                                                <span>${arrive_time}</span>
+                                                <span class="date">${arrive_date}</span>
+                                            </td>
+                                            <td class="duration">
+                                                <span>${ticket.duration/60}h${ticket.duration%60}m</span>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="item-price-more">
+                                    <div class="price">
+                                        <span class="amount">${ticket.price} $</span>
+
+                                    </div>
+                                    <a href="train-detail.html?id=${ticket.id}" class="awe-btn">Book now</a>
+                                </div>
+                            </div>`)
+                        }
+                    },
+                    error:function (err) {
+                        console.log(err)
+                    }
+                })
+            }
+        })
+
+    })
+
+    $('#train_submit').click(()=>{
+        const from = $("#from").val();
+        const to = $("#to").val();
+        const date = $("#date").val();
+        window.location.href = `./train.html?src_id=${from}&dst_id=${to}&date=${date}&page=0`
     })
 </script>
 </body>

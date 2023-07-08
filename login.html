@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- TITLE -->
-    <title>Gofar</title>
+    <title>Travel Yar</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
@@ -120,13 +120,16 @@
                             <a href="train.html">Train</a>
                            
                         </li>
-                        <li class="menu-item-has-children">
+                        <li class="menu-item-has-children " id="login">
                             <a href="login.html">Log In</a>
-                           
+
                         </li>
-                        <li class="menu-item-has-children">
+                        <li class="menu-item-has-children" id="register">
                             <a href="register.html">Register</a>
                            
+                        </li>
+                        <li class="menu-item-has-children" id="dashboard">
+                            <a href="#" id="user_name">Contact</a>
                         </li>
                         
 
@@ -315,9 +318,13 @@ $('#submit').click(()=>{
         password: password
         },
         success:(data,status)=>{
-        alert("Data: " + data + "\nStatus: " + status);},
+            console.log(data)
+            localStorage.setItem('token',JSON.stringify(data.tokenData))
+            window.location.href = "./"
+        },
         error:(data,status)=>{
-        console.log(data);
+
+            alert(data.responseJSON.message);
     }
     })
 })
