@@ -234,21 +234,31 @@
                 </div>
                 <form>
                     <div class="form-item">
+                        <label>name</label>
+                        <input type="text" id="name">
+                    </div>
+                    <div class="form-item">
+                        <label>phone</label>
+                        <input type="number" id="phone">
+                    </div>
+                    <div class="form-item">
                         <label>Email</label>
-                        <input type="email">
+                        <input type="email" id="email">
                     </div>
                     <div class="form-item">
                         <label>Password</label>
-                        <input type="password">
+                        <input type="password" id="password">
                     </div>
                     <div class="form-item">
                         <label>Confirm password</label>
-                        <input type="password">
+                        <input type="password" id="confrim_password">
                     </div>
                     <a href="#" class="terms-conditions">By registering, you accept terms &amp; conditions</a>
                     <div class="form-actions">
-                        <input type="submit" value="Register">
+                        <input type="button" value="Register" id="register">
                     </div>
+                   
+
                 </form>
                 <div class="login-register-link">
                     Already have Account? <a href="login.html">Log in HERE</a>
@@ -368,5 +378,37 @@
 <script type="text/javascript" src="js/lib/theia-sticky-sidebar.js"></script>
 <script type='text/javascript' src="js/lib/jquery-ui.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
+<script>
+    $('#register').click(()=>{
+        const user = $('#name').val()
+        const phone = $('#phone').val()
+        const username = $('#email').val()
+        const password = $('#password').val()
+        const confrim = $('#confrim_password').val()
+        
+        if (password == confrim){
+            $.ajax({
+            url:"http://localhost:3000/signup",
+            method:"POST",
+            data:{
+            name:user,
+            phone:phone ,
+            email: username,
+            password: password
+            
+            },
+            success:(data,status)=>{
+            alert("Data: " + data + "\nStatus: " + status);},
+            error:(data,status)=>{
+            alert(data.responseJSON.message);
+        }
+        })
+        }
+        else{
+            alert ("password not conflict")
+        }
+
+    })
+    </script>
 </body>
 </html>
