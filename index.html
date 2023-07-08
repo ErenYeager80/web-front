@@ -526,7 +526,7 @@
                                     <label>From</label>
                                     <div class="form-item">
                                         <select name="src" id="train_src_id" >
-                                            <option value="0">tset</option>
+
                                         </select>
                                     </div>
                                 </div>
@@ -534,7 +534,6 @@
                                     <label>To</label>
                                     <div class="form-item">
                                         <select name="dst" id="train_dst_id">
-                                            <option value="0">tset</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1607,13 +1606,16 @@
         });
     };
     $(document).ready(()=>{
-        $('#train_src_id').select2();
-        $('#train_dst_id').select2();
+        const trainSrc=$('#train_src_id').select2();
+       const trainDst= $('#train_dst_id').select2();
         $.ajax({
             url:'http://localhost:3000/cities',
             method:"GET",
             success:(data,status)=>{
-                console.log(data)
+                for (const dataKey of data.data) {
+                    trainSrc.append(new Option(dataKey.name,dataKey.id));
+                    trainDst.append(new Option(dataKey.name,dataKey.id));
+                }
             }
         })
 
@@ -1622,7 +1624,7 @@
         let src = $('#train_src_id').val();
         let dst = $('#train_dst_id').val();
         let date = $('#train_date').val();
-        location.href='./train.html?src_id='+src+'&dst_id='+dst+'&date='+date;
+        location.href='./train.html?src_id='+src+'&dst_id='+dst+'&date='+date+'&page=0';
 
     })
 </script>

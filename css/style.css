@@ -2886,11 +2886,12 @@ span.dropcap {
 }
 
 .category-heading-content .find .form-elements span {
-    display: inline-block;
+    /*display: inline-block;*/
+
     font-size: 11px;
     font-weight: 600;
     color: #A5A5A5;
-    margin-top: 8px;
+    /*margin-top: 8px;*/
 }
 
 .category-heading-content .find .form-elements .awe-icon {

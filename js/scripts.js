@@ -216,6 +216,7 @@
             $(this).datepicker({
                 showOtherMonths: true,
                 selectOtherMonths: true,
+                dateFormat: 'yy-mm-dd',
                 dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat']
             });
         });
@@ -420,6 +421,7 @@
                             $(this).datepicker({
                                 showOtherMonths: true,
                                 selectOtherMonths: true,
+
                                 dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat']
                             });
                         });
