@@ -1,3 +1,4 @@
+let user=undefined;
 (function ($) {
     "use strict";
     /*==============================
@@ -683,4 +684,27 @@
         }
 
     });
+    if(localStorage.getItem('token') == null) {
+        $('#login').show();
+        $('#register').show();
+        $('#logout').hide();
+        $('#dashboard').hide()
+    }else{
+        const token =JSON.parse(localStorage.getItem('token'));
+        const expires = new Date(Date.now()+token.expiresIn*1000);
+        if (expires < new Date()) {
+            localStorage.removeItem('token');
+            $('#login').show();
+            $('#register').show();
+            $('#logout').hide();
+            $('#dashboard').hide()
+        }else{
+            user=JSON.parse(atob(token.token.split('.')[1]));
+            $('#login').hide();
+            $('#register').hide();
+            $('#logout').show();
+            $('#dashboard').show();
+            $('#user_name').text(user.name);
+        }
+    }
 })(jQuery);

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- TITLE -->
-    <title>Gofar</title>
+    <title>Travel Yar</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
@@ -122,13 +122,16 @@
                             <a href="train.html">Train</a>
                            
                         </li>
-                        <li class="menu-item-has-children">
+                        <li class="menu-item-has-children " id="login">
                             <a href="login.html">Log In</a>
-                           
+
                         </li>
-                        <li class="menu-item-has-children">
+                        <li class="menu-item-has-children" id="register">
                             <a href="register.html">Register</a>
                            
+                        </li>
+                        <li class="menu-item-has-children" id="dashboard">
+                            <a href="#" id="user_name">Contact</a>
                         </li>
                         
 
@@ -383,7 +386,7 @@
     const cities = [];
     let pageNum=0;
     $(document).ready(function () {
-
+        console.log(user)
         const date = $("#date");
         date.val(window.location.search.substring(1).split("&")[2].split("=")[1]).trigger("change");
         pageNum = window.location.search.substring(1).split("&")[3].split("=")[1];
@@ -477,7 +480,7 @@
                                         <span class="amount">${ticket.price} $</span>
 
                                     </div>
-                                    <a href="train-detail.html" class="awe-btn">Book now</a>
+                                    <a href="train-detail.html?id=${ticket.id}" class="awe-btn">Book now</a>
                                 </div>
                             </div>`)
                         }
@@ -495,7 +498,7 @@
         const from = $("#from").val();
         const to = $("#to").val();
         const date = $("#date").val();
-        window.location.href = `./train.html?from=${from}&to=${to}&date=${date}`
+        window.location.href = `./train.html?src_id=${from}&dst_id=${to}&date=${date}&page=0`
     })
 </script>
 </body>
