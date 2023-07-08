@@ -1573,7 +1573,7 @@ span.dropcap {
     -o-border-radius: 6px;
     border-radius: 6px;
     margin-top: -55px;
-    z-index: 9999;
+    z-index: 50;
 }
 
 .awe-search-tabs .ui-tabs-nav {
@@ -1728,11 +1728,11 @@ span.dropcap {
 }
 
 .awe-search-tabs__content .ui-tabs-panel .form-elements span {
-    display: inline-block;
+    /*display: inline-block;*/
     font-size: 11px;
     font-weight: 600;
     color: #A5A5A5;
-    margin-top: 8px;
+    /*margin-top: 8px;*/
 }
 
 .awe-search-tabs__content .ui-tabs-panel .form-elements .awe-icon {

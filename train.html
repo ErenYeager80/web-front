@@ -1027,5 +1027,20 @@
 <script type="text/javascript" src="js/lib/perfect-scrollbar.min.js"></script>
 <script type='text/javascript' src="js/lib/jquery-ui.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
+<script>
+    $(document).ready(function () {
+
+      $.ajax({
+          url:"http://localhost:3000/tickets?type=train&"+window.location.search.substring(1)+"&page=1&size=10",
+          method:"GET",
+          success:function (data) {
+              console.log(data)
+          },
+          error:function (err) {
+              console.log(err)
+          }
+      })
+    })
+</script>
 </body>
 </html>

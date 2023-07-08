@@ -36,6 +36,8 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <!--[if IE 7]>
@@ -544,15 +546,17 @@
                                 <div class="form-elements">
                                     <label>From</label>
                                     <div class="form-item">
-                                        <i class="awe-icon awe-icon-marker-1"></i>
-                                        <input type="text" value="Ho Chi Minh, Hanoi, Vietnam">
+                                        <select name="src" id="train_src_id" >
+                                            <option value="0">tset</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-elements">
                                     <label>To</label>
                                     <div class="form-item">
-                                        <i class="awe-icon awe-icon-marker-1"></i>
-                                        <input type="text" value="Ankara, Turkey">
+                                        <select name="dst" id="train_dst_id">
+                                            <option value="0">tset</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -561,56 +565,36 @@
                                     <label>Depart on</label>
                                     <div class="form-item">
                                         <i class="awe-icon awe-icon-calendar"></i>
-                                        <input type="text" class="awe-calendar" value="Check in">
+                                        <input type="text" class="awe-calendar" value="Check in" id="train_date">
                                     </div>
                                 </div>
                                 <div class="form-elements">
-                                    <label>Return on</label>
+                                    <label>Count</label>
                                     <div class="form-item">
-                                        <i class="awe-icon awe-icon-calendar"></i>
-                                        <input type="text" class="awe-calendar" value="Check out">
-                                    </div>
-                                </div>
-                                <div class="form-elements">
-                                    <label>Adult</label>
-                                    <div class="form-item">
-                                        <select class="awe-select">
-                                            <option>0</option>
+                                        <select class="awe-select" id="train_count">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
-                                        </select>
-                                    </div>
-                                    <span>12 yo and above</span>
-                                </div>
-                                <div class="form-elements">
-                                    <label>Kids</label>
-                                    <div class="form-item">
-                                        <select class="awe-select">
-                                            <option>0</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
-                                    </div>
-                                    <span>0-11 yo</span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-elements">
-                                    <label>Budget</label>
-                                    <div class="form-item">
-                                        <select class="awe-select">
-                                            <option>All types</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
+                                            <option>4</option>
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-actions">
-                                <input type="submit" value="Find My Flight">
+
+<!--                            <div class="form-group">-->
+<!--                                <div class="form-elements">-->
+<!--                                    <label>Budget</label>-->
+<!--                                    <div class="form-item">-->
+<!--                                        <select class="awe-select">-->
+<!--                                            <option>All types</option>-->
+<!--                                            <option>1</option>-->
+<!--                                            <option>2</option>-->
+<!--                                            <option>3</option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="form-actions" style="width: 100%;margin-top: 25px">
+                                <input type="button" value="Find My Train" id="train_button">
                             </div>
                         </form>
                     </div>
@@ -1645,7 +1629,7 @@
 
 
 <!-- LOAD JQUERY -->
-<script type="text/javascript" src="js/lib/jquery-1.11.2.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/lib/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.parallax-1.1.3.js"></script>
 <script type="text/javascript" src="js/lib/jquery.owl.carousel.js"></script>
@@ -1653,11 +1637,13 @@
 <script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
 <script type='text/javascript' src="js/lib/jquery-ui.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- REVOLUTION DEMO -->
 <script type="text/javascript" src="revslider-demo/js/jquery.themepunch.revolution.min.js"></script>
 <script type="text/javascript" src="revslider-demo/js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript">
+    let cities;
     if ($('#slider-revolution').length) {
         $('#slider-revolution').show().revolution({
             ottedOverlay: "none",
@@ -1734,7 +1720,26 @@
             hideAllCaptionAtLilmit: 0,
             startWithSlide: 0
         });
-    }
+    };
+    $(document).ready(()=>{
+        $('#train_src_id').select2();
+        $('#train_dst_id').select2();
+        $.ajax({
+            url:'http://localhost:3000/cities',
+            method:"GET",
+            success:(data,status)=>{
+                console.log(data)
+            }
+        })
+
+    })
+    $('#train_button').click(()=>{
+        let src = $('#train_src_id').val();
+        let dst = $('#train_dst_id').val();
+        let date = $('#train_date').val();
+        location.href='./train.html?src_id='+src+'&dst_id='+dst+'&date='+date;
+
+    })
 </script>
 
 </body>
